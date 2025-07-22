@@ -21,7 +21,6 @@ migrate_working_dir/
 build/
 /build/
 coverage/
-lib/generated_plugin_registrant.dart
 *.g.dart
 *.freezed.dart
 # For library packages, don’t commit the pubspec.lock file.
