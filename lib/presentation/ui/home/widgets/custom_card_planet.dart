@@ -8,6 +8,7 @@ import 'package:planets_3A/core/extensions/color_extension.dart';
 import 'package:planets_3A/core/extensions/planet_extension.dart';
 import 'package:planets_3A/data/models/planet_model.dart';
 import 'package:planets_3A/presentation/ui/detail/screens/detail_screen.dart';
+import 'package:planets_3A/presentation/ui/home/helpers/image_local_helper.dart';
 import 'package:planets_3A/presentation/widgets/custom_cache_network_image.dart';
 
 class CustomCardPlanet extends ConsumerWidget {
@@ -33,7 +34,7 @@ class CustomCardPlanet extends ConsumerWidget {
               child: Row(
                 children: [
                   SizedBox(
-                    width: constraints.maxWidth - 250 - kSize16 * 2 - 16,
+                    width: constraints.maxWidth - 230 - kSize16 * 2 - 16,
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -48,6 +49,8 @@ class CustomCardPlanet extends ConsumerWidget {
                         Text(
                           planet?.description ?? '',
                           textAlign: TextAlign.center,
+                          overflow: TextOverflow.ellipsis,
+                          maxLines: 10,
                           style: Theme.of(
                             context,
                           ).textTheme.bodyMedium?.copyWith(color: kBlack.withOpacityValue(0.7), fontSize: 12),
@@ -55,12 +58,7 @@ class CustomCardPlanet extends ConsumerWidget {
                       ],
                     ),
                   ),
-                  CustomCacheNetworkImage(
-                    imageUrl: planet?.image ?? '',
-                    width: 250,
-                    height: 250,
-                    fit: BoxFit.contain,
-                  ),
+                  ImageLocalHelper.getImage(planetName: planet?.image ?? '', width: 230, height: 230),
                 ],
               ),
             ),

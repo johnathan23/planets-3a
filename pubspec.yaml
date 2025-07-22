@@ -84,6 +84,7 @@ flutter:
     # ? add assets here
     - assets/images/ # * images
     - assets/launcher/ # * launcher images
+    - assets/jsons/ # * json files
     - .env/ # * environment variables
 
 

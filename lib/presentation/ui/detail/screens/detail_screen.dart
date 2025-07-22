@@ -8,6 +8,7 @@ import 'package:planets_3A/data/models/planet_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:planets_3A/presentation/ui/detail/widgets/custom_chip.dart';
+import 'package:planets_3A/presentation/ui/home/helpers/image_local_helper.dart';
 import 'package:planets_3A/presentation/ui/home/providers/home_provider.dart';
 import 'package:planets_3A/presentation/ui/home/screens/home_screen.dart';
 import 'package:planets_3A/presentation/ui/home/widgets/custom_sliver_grid_fixed_cross_axis_count.dart';
@@ -64,12 +65,7 @@ class _DetailScreenState extends ConsumerState<DetailScreen> {
               padding: kPaddingSymmetric(horizontal: kSize16),
               child: Column(
                 children: [
-                  CustomCacheNetworkImage(
-                    imageUrl: planetModel?.image ?? '',
-                    width: 250,
-                    height: 250,
-                    fit: BoxFit.contain,
-                  ),
+                  ImageLocalHelper.getImage(planetName: planetModel?.image ?? '', width: 230, height: 230),
                   Text(
                     planetModel?.name ?? '',
                     style: Theme.of(
