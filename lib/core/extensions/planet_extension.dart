@@ -6,7 +6,7 @@ extension PlanetExtension on PlanetModel {
     if (image == null || image?.isEmpty == true) {
       return '';
     }
-    return '$kApiBaseUrl/$kApiVersion/$kApiPathData/$image?raw=true';
+    return '$kApiBaseUrl/$kApiVersion/$kApiPathData/$image';
   }
 
   bool matchesQuery(String query) {
