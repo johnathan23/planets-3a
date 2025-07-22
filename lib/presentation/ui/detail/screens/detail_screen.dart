@@ -65,7 +65,7 @@ class _DetailScreenState extends ConsumerState<DetailScreen> {
               child: Column(
                 children: [
                   CustomCacheNetworkImage(
-                    imageUrl: planetModel?.imageUrl ?? '',
+                    imageUrl: planetModel?.image ?? '',
                     width: 250,
                     height: 250,
                     fit: BoxFit.contain,

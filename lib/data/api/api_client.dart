@@ -15,6 +15,6 @@ abstract class ApiClient {
     return _ApiClient(DioConfig.createDio(url: otherUrl ?? kApiBaseUrl));
   }
 
-  @GET('/$kApiVersion/$kApiPathData/planets.json?raw=true')
+  @GET('/planets')
   Future<BaseResponse> getPlanets();
 }

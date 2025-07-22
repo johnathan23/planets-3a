@@ -56,7 +56,7 @@ class CustomCardPlanet extends ConsumerWidget {
                     ),
                   ),
                   CustomCacheNetworkImage(
-                    imageUrl: planet?.imageUrl ?? '',
+                    imageUrl: planet?.image ?? '',
                     width: 250,
                     height: 250,
                     fit: BoxFit.contain,

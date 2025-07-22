@@ -7,6 +7,3 @@ const String kTag = '### $kAppName';
 const String kPathToEnv = '.env/dev.env';
 
 final String kApiBaseUrl = Environment.baseUrl;
-const String kApiVersion = 'docs';
-const String kApiPathData = 'data';
-const String kApiPathResources = 'resources';
