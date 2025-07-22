@@ -34,7 +34,7 @@ jobs:
         run: flutter pub run build_runner build --delete-conflicting-outputs
 
       - name: Build Flutter Web
-        run: flutter build web --release --base-href=/
+        run: flutter build web --release --base-href=/planets-3a
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
