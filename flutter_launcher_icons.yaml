@@ -1,0 +1,21 @@
+flutter_launcher_icons:
+  image_path: "assets/launcher/launcher_square.png"
+
+  android: "ic_launcher"
+  min_sdk_android: 21
+
+  ios: true
+
+  remove_alpha_ios: true
+
+  web:
+    generate: true
+    image_path: "assets/launcher/launcher_square.png"
+    background_color: "#hexcode"
+    theme_color: "#hexcode"
+
+  windows:
+    generate: true
+
+  macos:
+    generate: true
