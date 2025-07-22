@@ -45,10 +45,9 @@ jobs:
       - name: Add .nojekyll file
         run: touch ./build/web/.nojekyll
         
-      - name: Add CORS headers to index.html
+      - name: Disable CORS headers to index.html
         run: |
-          sed -i '/<\/head>/i\  <meta http-equiv="Cross-Origin-Embedder-Policy" content="require-corp">' ./build/web/index.html
-          sed -i '/<\/head>/i\  <meta http-equiv="Cross-Origin-Opener-Policy" content="same-origin">' ./build/web/index.html
+         sed -i '/</head>/i\  <meta http-equiv="Content-Security-Policy" content="default-src * data: blob:; script-src * '''unsafe-inline''' '''unsafe-eval'''; style-src * '''unsafe-inline'''">' ./build/web/index.html
           
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
