@@ -35,7 +35,7 @@ dependencies:
     sdk: flutter
   intl: any  # * Internationalization
   flutter_dotenv: ^5.2.1  # * environment variables
-  go_router: ^14.8.1 # * routing
+  go_router: ^16.0.0 # * routing
   flutter_native_splash: ^2.4.5 # * splash screen
   flutter_riverpod: ^2.6.1 # * riverpod state management
   riverpod_annotation: ^2.6.1 # * riverpod state management
@@ -84,6 +84,7 @@ flutter:
     # ? add assets here
     - assets/images/ # * images
     - assets/launcher/ # * launcher images
+    - assets/json/ # * json files
     - .env/ # * environment variables
 
 

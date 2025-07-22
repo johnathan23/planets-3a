@@ -27,7 +27,6 @@ class MyApp extends ConsumerWidget {
     return MaterialApp.router(
       title: kAppName,
       theme: AppTheme.light,
-
       routerConfig: ref.watch(routerProvider),
       scrollBehavior: CustomScrollBehavior(),
     );

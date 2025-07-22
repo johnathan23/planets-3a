@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:planets_3A/app/theme/app_dimension.dart';
 
 class FadeAnimation extends StatefulWidget {
-  const FadeAnimation({super.key, required this.child, required this.duration});
+  const FadeAnimation({super.key, required this.child, this.duration = k1sec});
 
   final Widget child;
   final Duration duration;

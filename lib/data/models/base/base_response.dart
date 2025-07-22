@@ -5,8 +5,8 @@ part 'base_response.g.dart';
 
 @Freezed(genericArgumentFactories: true)
 abstract class BaseResponse<T> with _$BaseResponse<T> {
-  const factory BaseResponse({required T data, @JsonKey(name: 'msg')required String message}) = _BaseResponse<T>;
+  const factory BaseResponse({required T data, @JsonKey(name: 'msg') required String message}) = _BaseResponse<T>;
 
-  factory BaseResponse.fromJson(Map<String, dynamic> json, T Function(Object? json) fromJsonT) =>
-      _$BaseResponseFromJson<T>(json, fromJsonT);
+  factory BaseResponse.fromJson(Map<String, dynamic> json, T Function(Object?) fromJsonT) =>
+      _$BaseResponseFromJson(json, fromJsonT);
 }

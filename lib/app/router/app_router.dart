@@ -1,6 +1,5 @@
 import 'package:planets_3A/app/router/transitions/page_transitions.dart';
 import 'package:planets_3A/app/theme/app_dimension.dart';
-import 'package:planets_3A/data/models/planet_model.dart';
 import 'package:planets_3A/domain/enum/log_level_enum.dart';
 import 'package:planets_3A/domain/enum/transition_type_enum.dart';
 import 'package:planets_3A/presentation/ui/detail/screens/detail_screen.dart';
@@ -38,14 +37,10 @@ class Router extends _$Router {
       level: LogLevel.info,
     );
 
-    if (path == '/' || !_isPathValid(path)) {
+    if (path == '/') {
       return IntroScreen.path;
     }
 
     return null;
-  }
-
-  bool _isPathValid(String path) {
-    return appRoutes.any((route) => route.path == path);
   }
 }

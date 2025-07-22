@@ -14,13 +14,15 @@ const List<Color> _kBackground = [kBlue, kViolet, kPurple];
 const List<Color> _kBackground02 = [kBlue03, kPurple];
 
 const LinearGradient kBackgroundGradient = LinearGradient(
-  begin: Alignment.topLeft,
-  end: Alignment.bottomRight,
+  begin: Alignment.topCenter,
+  end: Alignment.bottomCenter,
+  stops: [0.0, 0.52, 1.0],
   colors: _kBackground,
 );
 
 const LinearGradient kBackgroundGradient02 = LinearGradient(
-  begin: Alignment.topLeft,
-  end: Alignment.bottomRight,
+  begin: Alignment.topCenter,
+  end: Alignment.bottomCenter,
+
   colors: _kBackground02,
 );

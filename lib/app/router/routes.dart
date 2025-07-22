@@ -21,11 +21,11 @@ final appRoutes = [
   ),
   GoRoute(
     name: DetailScreen.screenName,
-    path: DetailScreen.path,
+    path: '${DetailScreen.path}/:planetName',
     pageBuilder: (context, state) {
-      final PlanetModel? planetModel = state.extra as PlanetModel?;
+      final String? planetName = state.pathParameters['planetName'];
       return PageTransitions(
-        screen: DetailScreen(planetModel: planetModel),
+        screen: DetailScreen(planetName: planetName),
         transitionType: TransitionType.slide,
         durationTransition: k500milSec,
       );
