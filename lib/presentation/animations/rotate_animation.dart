@@ -4,11 +4,7 @@ class RotateAnimation extends StatefulWidget {
   final Widget child;
   final Duration? duration;
 
-  const RotateAnimation({
-    super.key,
-    required this.child,
-    this.duration,
-  });
+  const RotateAnimation({super.key, required this.child, this.duration});
 
   @override
   State<RotateAnimation> createState() => _RotatingPlanetState();
@@ -21,10 +17,7 @@ class _RotatingPlanetState extends State<RotateAnimation> with SingleTickerProvi
   void initState() {
     super.initState();
 
-    _controller = AnimationController(
-      vsync: this,
-      duration: widget.duration ?? const Duration(seconds: 20),
-    )..repeat();
+    _controller = AnimationController(vsync: this, duration: widget.duration ?? const Duration(seconds: 20))..repeat();
   }
 
   @override
@@ -35,9 +28,6 @@ class _RotatingPlanetState extends State<RotateAnimation> with SingleTickerProvi
 
   @override
   Widget build(BuildContext context) {
-    return RotationTransition(
-      turns: _controller,
-      child: widget.child,
-    );
+    return RotationTransition(turns: _controller, child: widget.child);
   }
 }

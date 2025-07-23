@@ -70,7 +70,11 @@ class _DetailScreenState extends ConsumerState<DetailScreen> {
               padding: kPaddingSymmetric(horizontal: kSize16),
               child: Column(
                 children: [
-                  FadeAnimation(child: RotateAnimation(child: ImageLocal.getImage(planetName: planetModel?.image ?? '', width: 230, height: 230))),
+                  FadeAnimation(
+                    child: RotateAnimation(
+                      child: ImageLocal.getImage(planetName: planetModel?.image ?? '', width: 230, height: 230),
+                    ),
+                  ),
                   Row(
                     children: [
                       Expanded(

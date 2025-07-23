@@ -6,7 +6,7 @@ import 'package:planets_3A/app/theme/app_dimension.dart';
 
 class ImageLocal {
   static Widget getImage({required String planetName, required double width, required double height}) {
-    String imagePath = kIsWeb ? 'images/${planetName.toLowerCase()}' : 'assets/images/${planetName.toLowerCase()}';
+    String imagePath = 'assets/images/${planetName.toLowerCase()}';
     return Image.asset(
       imagePath,
       width: width,
