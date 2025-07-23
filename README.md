@@ -8,27 +8,30 @@
 ## Project Structure
 ```dart
 lib/
-├── app/                # Application configuration (constants, routing, theme)
-│   ├── constants/
-│   ├── router/
-│   └── theme/
-├── core/               # Core logic and general utilities
-│   ├── errors/         # Error handling
-│   ├── extensions/     # Useful extensions
-│   └── utils/          # Common utilities
-├── data/               # Data layer (implementation)
-│   ├── datasources/    # Data sources (API, local, etc.)
-│   ├── models/         # Data models (DTOs)
-│   └── repositories/   # Repository implementations
-├── domain/             # Domain layer (business logic)
-│   ├── enum/           # Enumerations
-│   ├── repositories/   # Repository contracts (abstract classes)
-│   └── usecases/       # Use cases
-├── presentation/       # Presentation layer (UI)
-│   ├── animations/     # Custom animations
-│   ├── ui/             # Screens and views
-│   └── widgets/        # Reusable widgets
-└── main.dart           # Application entry point
+├── app/                    # App-level configuration
+│   ├── constants/          # Constantes globales
+│   ├── router/             # Configuración de rutas (GoRouter)
+│   └── theme/              # Temas y estilos globales
+├── core/                   # Infraestructura reutilizable y utilidades globales
+│   ├── db/         # Manejo de sesión/local storage (e.g., SharedPreferences)
+│   ├── errors/             # Manejo de errores (exceptions, failure classes)
+│   ├── extensions/         # Extensiones de Dart/Flutter
+│   └── utils/              # Utilidades comunes (formatters, helpers)
+├── data/                   # Implementaciones concretas (API, repositorios, etc.)
+│   ├── api/                # Endpoints, cliente http o servicios remotos
+│   ├── datasources/        # Fuentes de datos (remote/local)
+│   ├── models/             # Modelos (DTOs adaptados a cada fuente)
+│   └── repositories/       # Implementaciones de los repositorios definidos en domain/
+├── domain/                 # Lógica de negocio (pura, sin dependencias externas)
+│   ├── datasources/        # Contratos abstractos de fuentes de datos
+│   ├── enum/               # Enumeraciones del dominio
+│   ├── repositories/       # Interfaces de los repositorios
+│   └── usecases/           # Casos de uso del negocio
+├── presentation/           # Capa de presentación (UI)
+│   ├── animations/         # Animaciones personalizadas
+│   ├── ui/                 # Pantallas organizadas por feature/view
+│   └── widgets/            # Widgets reutilizables
+└── main.dart               # Punto de entrada principal
 ```
 
 ## Architecture
@@ -46,15 +49,18 @@ graph TD;
     UseCases[Use Cases]
     Enums[Enums]
     DomainRepos[Repository Contracts]
+    DomainDS[Datasource Contracts]
   end
 
   subgraph Data Layer
-    DataSources[Data Sources]
-    Models[Models DTOs]
+    API[APIs]
+    DataSources[Data Sources Impl]
+    Models[DTO Models]
     DataRepos[Repository Implementations]
   end
 
   subgraph Core Layer
+    DB[Data Base]
     Errors[Error Handling]
     Extensions[Extensions]
     Utils[Utilities]
@@ -68,11 +74,14 @@ graph TD;
 
   Main[Main Dart Entry]
 
-  %% Dependencies (flow of calls, not coupling)
+  %% Flow
   Main --> UI
   UI --> UseCases
   UseCases --> DomainRepos
+  UseCases --> DomainDS
   DomainRepos --> DataRepos
+  DomainDS --> DataSources
+  DataSources --> API
 ```
 
 
@@ -187,6 +196,9 @@ graph TD;
 
 ## Version History
 -----------------
+
+* ### **v1.1.0** **(2025-07-23)**
+    * added: Update Project Structure and Architecture 
 
 * ### **v1.0.0** **(2025-07-21)**
     * added: Initial version of the readme
