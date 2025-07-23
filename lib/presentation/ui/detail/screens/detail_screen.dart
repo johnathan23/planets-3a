@@ -58,7 +58,7 @@ class _DetailScreenState extends ConsumerState<DetailScreen> {
   Widget _detailView(PlanetModel? planetModel) {
     return SafeArea(
       child: Scaffold(
-        appBar: AppBar(),
+        appBar: AppBar(title: Text('Detail'),),
         body: Column(
           children: [
             Padding(
