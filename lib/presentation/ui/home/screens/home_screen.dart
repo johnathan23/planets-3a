@@ -1,11 +1,15 @@
 import 'dart:async';
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
+import 'package:material_symbols_icons/symbols.dart';
 import 'package:planets_3A/app/theme/app_colors.dart';
 import 'package:planets_3A/app/theme/app_decorations.dart';
 import 'package:planets_3A/app/theme/app_dimension.dart';
 import 'package:planets_3A/core/extensions/color_extension.dart';
+import 'package:planets_3A/presentation/ui/favorites/screens/favorite_screen.dart';
 import 'package:planets_3A/presentation/ui/home/providers/home_provider.dart';
 import 'package:planets_3A/presentation/ui/home/widgets/custom_card_planet.dart';
 import 'package:planets_3A/presentation/ui/home/widgets/custom_sliver_grid_fixed_cross_axis_count.dart';
@@ -69,6 +73,14 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
     });
   }
 
+  void _navigateToFavorites() {
+    if (!kIsWeb) {
+      context.pushNamed(FavoriteScreen.screenName);
+    } else {
+      context.goNamed(FavoriteScreen.screenName);
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     final planets = ref.watch(homeProvider).planets;
@@ -107,6 +119,11 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
               ],
             ),
           ),
+        ),
+        floatingActionButton: FloatingActionButton(
+          backgroundColor: kWhite,
+          onPressed: () => _navigateToFavorites(),
+          child: Icon(Symbols.favorite_sharp, color: kPurple, size: kSize20, fill: 1),
         ),
       ),
     );

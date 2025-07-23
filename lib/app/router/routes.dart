@@ -31,4 +31,14 @@ final appRoutes = [
       );
     },
   ),
+  GoRoute(
+    name: FavoriteScreen.screenName,
+    path: FavoriteScreen.path,
+    pageBuilder:
+        (context, state) => PageTransitions(
+          screen: FavoriteScreen(),
+          transitionType: TransitionType.size,
+          durationTransition: k500milSec,
+        ),
+  ),
 ];

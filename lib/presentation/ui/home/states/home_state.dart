@@ -8,6 +8,7 @@ part 'home_state.g.dart';
 abstract class HomeState with _$HomeState {
   const factory HomeState({
     List<PlanetModel>? planets,
+    List<PlanetModel>? allPlanets,
     @Default(false) bool isLoading,
     @Default(false) bool hasError,
     String? errorMessage,

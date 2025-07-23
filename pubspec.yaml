@@ -48,6 +48,7 @@ dependencies:
   google_fonts: ^6.2.1 # * Google Fonts
   material_symbols_icons: ^4.2805.1 # * Material Design Icons
   font_awesome_flutter: ^10.8.0 # * Font Awesome Icons
+  shared_preferences: ^2.5.2 # * save data locally
 
 dev_dependencies:
   flutter_test:

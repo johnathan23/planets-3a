@@ -18,16 +18,16 @@ class HomeDatasourceImpl implements HomeDatasource {
   @override
   Future<List<PlanetModel>> getPlanets() async {
     try {
-      /*final BaseResponse response = await _apiClient.getPlanets();
+      final BaseResponse response = await _apiClient.getPlanets();
       final List<PlanetModel> planets =
-      (response.data as List<dynamic>).map((element) => PlanetModel.fromJson(element)).toList();
-      return planets;*/
-      final data = await rootBundle.loadString("assets/jsons/planets.json");
+          (response.data as List<dynamic>).map((element) => PlanetModel.fromJson(element)).toList();
+      return planets;
+      /*final data = await rootBundle.loadString("assets/jsons/planets.json");
       final BaseResponse<List<PlanetModel>> response = BaseResponse.fromJson(
         json.decode(data),
         (jsonData) => (jsonData as List<dynamic>).map((e) => PlanetModel.fromJson(e as Map<String, dynamic>)).toList(),
       );
-      return response.data;
+      return response.data;*/
     } catch (e) {
       CustomConsole.log(message: 'Error to get planets', error: e.toString(), level: LogLevel.warning);
       rethrow;
