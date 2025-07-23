@@ -1,3 +1,4 @@
+import 'package:planets_3A/core/errors/server_error.dart';
 import 'package:planets_3A/core/extensions/planet_extension.dart';
 import 'package:planets_3A/data/models/planet_model.dart';
 import 'package:planets_3A/data/repositories/home_repository_impl.dart';
@@ -27,6 +28,7 @@ class Home extends _$Home {
       state = state.copyWith(allPlanets: planets, planets: planets, isLoading: false);
     } catch (e) {
       state = state.copyWith(isLoading: false, hasError: true, errorMessage: e.toString());
+      ServerError().catchError(error: e);
       throw Exception('Error get planets: $e');
     }
   }
@@ -39,9 +41,7 @@ class Home extends _$Home {
         return;
       }
 
-      final List<PlanetModel>? filtered = state.allPlanets
-          ?.where((planet) => planet.matchesQuery(query))
-          .toList();
+      final List<PlanetModel>? filtered = state.allPlanets?.where((planet) => planet.matchesQuery(query)).toList();
 
       state = state.copyWith(planets: filtered, isLoading: false);
     } catch (e) {

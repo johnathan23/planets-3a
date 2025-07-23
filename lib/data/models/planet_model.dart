@@ -21,6 +21,7 @@ abstract class PlanetModel with _$PlanetModel {
     required int? moons,
     required String? image,
     required String? description,
+    @Default(false) bool isFavorite,
   }) = _PlanetModel;
 
   factory PlanetModel.fromJson(Map<String, dynamic> json) => _$PlanetModelFromJson(json);

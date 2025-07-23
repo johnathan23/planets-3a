@@ -20,7 +20,7 @@ class HomeDatasourceImpl implements HomeDatasource {
     try {
       final BaseResponse response = await _apiClient.getPlanets();
       final List<PlanetModel> planets =
-      (response.data as List<dynamic>).map((element) => PlanetModel.fromJson(element)).toList();
+          (response.data as List<dynamic>).map((element) => PlanetModel.fromJson(element)).toList();
       return planets;
       /*final data = await rootBundle.loadString("assets/jsons/planets.json");
       final BaseResponse<List<PlanetModel>> response = BaseResponse.fromJson(

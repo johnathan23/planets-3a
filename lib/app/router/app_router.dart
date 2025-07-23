@@ -3,6 +3,7 @@ import 'package:planets_3A/app/theme/app_dimension.dart';
 import 'package:planets_3A/domain/enum/log_level_enum.dart';
 import 'package:planets_3A/domain/enum/transition_type_enum.dart';
 import 'package:planets_3A/presentation/ui/detail/screens/detail_screen.dart';
+import 'package:planets_3A/presentation/ui/favorites/screens/favorite_screen.dart';
 import 'package:planets_3A/presentation/ui/home/screens/home_screen.dart';
 import 'package:planets_3A/presentation/ui/intro/screens/intro_screen.dart';
 import 'package:flutter/material.dart';
